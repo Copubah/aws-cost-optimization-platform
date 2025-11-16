@@ -3,96 +3,97 @@
 ## File Tree
 
 ```
-aws-cost-optimization/
-
- README.md # Main project documentation
- QUICKSTART.md # 15-minute setup guide
- PROJECT_OVERVIEW.md # Complete project summary
- CONTRIBUTING.md # Contribution guidelines
- CHANGELOG.md # Version history
- LICENSE # MIT License
- Makefile # Build automation
- .gitignore # Git ignore rules
-
- docs/ # Documentation
- ARCHITECTURE.md # System architecture
- ARCHITECTURE_DIAGRAM.md # Visual diagrams (Mermaid)
- DEPLOYMENT.md # Deployment guide
- TESTING.md # Testing procedures
- SECURITY.md # Security best practices
- PROJECT_SUMMARY.md # Executive summary
-
- terraform/ # Infrastructure as Code
- main.tf # Root module
- variables.tf # Global variables
- outputs.tf # Stack outputs
- terraform.tfvars.example # Example configuration
- 
- modules/ # Reusable modules
- 
- vpc/ # Network infrastructure
- main.tf # VPC, subnets, NAT, IGW
- variables.tf # VPC variables
- outputs.tf # VPC outputs
- 
- ecs/ # Container orchestration
- main.tf # ECS cluster, service, ALB
- variables.tf # ECS variables
- outputs.tf # ECS outputs
- 
- lambda/ # Serverless functions
- main.tf # Lambda functions, triggers
- variables.tf # Lambda variables
- outputs.tf # Lambda outputs
- 
- cloudwatch/ # Monitoring & alarms
- main.tf # Alarms, dashboard, logs
- variables.tf # CloudWatch variables
- outputs.tf # CloudWatch outputs
- 
- budgets/ # Cost management
- main.tf # AWS Budgets configuration
- variables.tf # Budget variables
- outputs.tf # Budget outputs
- 
- sns/ # Notifications
- main.tf # SNS topics, subscriptions
- variables.tf # SNS variables
- outputs.tf # SNS outputs
- 
- iam/ # Access management
- main.tf # IAM roles, policies
- variables.tf # IAM variables
- outputs.tf # IAM outputs
- 
- s3/ # Storage
- main.tf # S3 buckets, lifecycle
- variables.tf # S3 variables
- outputs.tf # S3 outputs
- 
- environments/ # Environment configs
- dev/
- terraform.tfvars # Dev configuration
- staging/
- terraform.tfvars # Staging configuration
- prod/
- terraform.tfvars # Production configuration
-
- lambda/ # Lambda function code
- 
- cost_optimizer/ # Cost optimization
- __init__.py # Package init
- stop_dev_instances.py # Main handler
- scale_ecs_tasks.py # ECS scaling module
- requirements.txt # Python dependencies
- 
- notifications/ # Notification handlers
- __init__.py # Package init
- budget_alert_handler.py # Budget alert processor
- requirements.txt # Python dependencies
-
- scripts/ # Helper scripts
- validate-deployment.sh # Deployment validation
+aws-cost-optimization-platform/
+│
+├── README.md                          # Main project documentation
+├── QUICKSTART.md                      # 15-minute setup guide
+├── PROJECT_OVERVIEW.md                # Complete project summary
+├── CONTRIBUTING.md                    # Contribution guidelines
+├── CHANGELOG.md                       # Version history
+├── LICENSE                            # MIT License
+├── Makefile                           # Build automation
+├── .gitignore                         # Git ignore rules
+├── architecture-diagram.md            # ASCII architecture diagrams
+│
+├── docs/                              # Documentation
+│   ├── ARCHITECTURE.md                # System architecture
+│   ├── ARCHITECTURE_DIAGRAM.md        # Visual diagrams (Mermaid)
+│   ├── DEPLOYMENT.md                  # Deployment guide
+│   ├── TESTING.md                     # Testing procedures
+│   ├── SECURITY.md                    # Security best practices
+│   └── PROJECT_SUMMARY.md             # Executive summary
+│
+├── terraform/                         # Infrastructure as Code
+│   ├── main.tf                        # Root module
+│   ├── variables.tf                   # Global variables
+│   ├── outputs.tf                     # Stack outputs
+│   ├── terraform.tfvars.example       # Example configuration
+│   │
+│   ├── modules/                       # Reusable modules
+│   │   │
+│   │   ├── vpc/                       # Network infrastructure
+│   │   │   ├── main.tf                # VPC, subnets, NAT, IGW
+│   │   │   ├── variables.tf           # VPC variables
+│   │   │   └── outputs.tf             # VPC outputs
+│   │   │
+│   │   ├── ecs/                       # Container orchestration
+│   │   │   ├── main.tf                # ECS cluster, service, ALB
+│   │   │   ├── variables.tf           # ECS variables
+│   │   │   └── outputs.tf             # ECS outputs
+│   │   │
+│   │   ├── lambda/                    # Serverless functions
+│   │   │   ├── main.tf                # Lambda functions, triggers
+│   │   │   ├── variables.tf           # Lambda variables
+│   │   │   └── outputs.tf             # Lambda outputs
+│   │   │
+│   │   ├── cloudwatch/                # Monitoring & alarms
+│   │   │   ├── main.tf                # Alarms, dashboard, logs
+│   │   │   ├── variables.tf           # CloudWatch variables
+│   │   │   └── outputs.tf             # CloudWatch outputs
+│   │   │
+│   │   ├── budgets/                   # Cost management
+│   │   │   ├── main.tf                # AWS Budgets configuration
+│   │   │   ├── variables.tf           # Budget variables
+│   │   │   └── outputs.tf             # Budget outputs
+│   │   │
+│   │   ├── sns/                       # Notifications
+│   │   │   ├── main.tf                # SNS topics, subscriptions
+│   │   │   ├── variables.tf           # SNS variables
+│   │   │   └── outputs.tf             # SNS outputs
+│   │   │
+│   │   ├── iam/                       # Access management
+│   │   │   ├── main.tf                # IAM roles, policies
+│   │   │   ├── variables.tf           # IAM variables
+│   │   │   └── outputs.tf             # IAM outputs
+│   │   │
+│   │   └── s3/                        # Storage
+│   │       ├── main.tf                # S3 buckets, lifecycle
+│   │       ├── variables.tf           # S3 variables
+│   │       └── outputs.tf             # S3 outputs
+│   │
+│   └── environments/                  # Environment configs
+│       ├── dev/
+│       │   └── terraform.tfvars       # Dev configuration
+│       ├── staging/
+│       │   └── terraform.tfvars       # Staging configuration
+│       └── prod/
+│           └── terraform.tfvars       # Production configuration
+│
+├── lambda/                            # Lambda function code
+│   │
+│   ├── cost_optimizer/                # Cost optimization
+│   │   ├── __init__.py                # Package init
+│   │   ├── stop_dev_instances.py      # Main handler
+│   │   ├── scale_ecs_tasks.py         # ECS scaling module
+│   │   └── requirements.txt           # Python dependencies
+│   │
+│   └── notifications/                 # Notification handlers
+│       ├── __init__.py                # Package init
+│       ├── budget_alert_handler.py    # Budget alert processor
+│       └── requirements.txt           # Python dependencies
+│
+└── scripts/                           # Helper scripts
+    └── validate-deployment.sh         # Deployment validation
 ```
 
 ## File Count Summary
