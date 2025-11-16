@@ -1,0 +1,43 @@
+# AWS Configuration
+aws_region   = "us-east-1"
+project_name = "cost-optimization"
+environment  = "dev"
+cost_center  = "engineering"
+
+# VPC Configuration
+vpc_cidr           = "10.0.0.0/16"
+availability_zones = ["us-east-1a", "us-east-1b"]
+enable_nat_gateway = true
+
+# Notification Configuration
+budget_alert_emails     = ["finance@example.com", "devops@example.com"]
+operations_alert_emails = ["ops@example.com", "oncall@example.com"]
+
+# Budget Configuration
+monthly_budget_amount = 1000
+budget_thresholds     = [50, 80, 100, 120]
+
+# ECS Configuration
+ecs_task_cpu      = 256
+ecs_task_memory   = 512
+ecs_desired_count = 2
+ecs_min_capacity  = 1
+ecs_max_capacity  = 10
+app_image         = "nginx:latest"
+app_port          = 80
+
+# CloudWatch Alarm Thresholds
+cpu_threshold_percent    = 80
+memory_threshold_percent = 80
+alb_latency_threshold_ms = 1000
+alb_5xx_threshold        = 10
+
+# S3 Lifecycle Configuration
+s3_transition_to_ia_days     = 30
+s3_transition_to_glacier_days = 90
+s3_expiration_days           = 365
+
+# Cost Automation
+enable_cost_automation = true
+business_hours_start   = "09:00"
+business_hours_end     = "18:00"
